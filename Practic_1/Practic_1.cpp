@@ -4,7 +4,7 @@
 #include <iomanip>
 
 int main() {
-	std::cout << std::boolalpha;
+	std::cout << std::boolalpha;	
 	std::string name{};
 	int age{};
 	bool x{};
