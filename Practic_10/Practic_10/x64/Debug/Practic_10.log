@@ -1,0 +1,4 @@
+﻿  Practic_10.cpp
+C:\Users\Jurwa\Learncpp_course\Practic_10\Practic_10.cpp(150,18): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Practic_10\Practic_10.cpp(177,1): warning C4715: CalculateScore: значение возвращается не при всех путях выполнения
+  Practic_10.vcxproj -> C:\Users\Jurwa\Learncpp_course\Practic_10\x64\Debug\Practic_10.exe
