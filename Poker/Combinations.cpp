@@ -136,7 +136,7 @@ int CalculateFullHouse(std::string EveryCard) {
 	std::string RepeatCost{ CalculateRepeatCost(EveryCard) };
 
 	if (RepeatCost.find('3') != std::string::npos && RepeatCost.rfind('2') != std::string::npos)
-		return 800000 + (RepeatCost.rfind('3') + 1) * 10 + RepeatCost.rfind('2') + 1;
+		return 800000 + (RepeatCost.rfind('3') + 1) * 15 + RepeatCost.rfind('2') + 1;
 
 	else if (RepeatCost.rfind('3') != std::string::npos and RepeatCost.rfind('3') > 0) {
 		k = RepeatCost.rfind('3') + 1;
@@ -144,7 +144,7 @@ int CalculateFullHouse(std::string EveryCard) {
 
 		if (RepeatCost.rfind('3', pos - 1) != std::string::npos) {
 			j = RepeatCost.rfind('3', pos - 1);
-			return 800000 + k * 10 + j + 1;
+			return 800000 + k * 15 + j + 1;
 		}
 	}
 
@@ -294,7 +294,7 @@ int CalculatePair(std::string EveryCard) {
 	}
 
 	if (pair != 0)
-		return pair * 2700 + kick1 * 200 + kick2 * 15 + kick3;
+		return 200000 + pair * 2700 + kick1 * 200 + kick2 * 15 + kick3;
 	return 0;	
 }
 
@@ -310,15 +310,23 @@ int CalculateHighCard(std::string EveryCard) {
 	for (int i{ 12 };i > -1;--i) {
 
 		if (RepeatCost[i] != '0') {
-			if (kick1 == 0)
+			if (kick1 == 0) {
 				kick1 = i + 1;
-			if (kick2 == 0)
+				continue;
+			}
+			if (kick2 == 0 && kick1 != 0) {
 				kick2 = i + 1;
-			if (kick3 == 0)
+				continue;
+			}
+			if (kick3 == 0 && kick2 != 0) {
 				kick3 = i + 1;
-			if (kick4 == 0)
+				continue;
+			}
+			if (kick4 == 0 && kick3 != 0) {
 				kick4 = i + 1;
-			if (kick5 == 0) {
+				continue;
+			}
+			if (kick5 == 0 && kick4 != 0) {
 				kick5 = i + 1;
 				break;
 			}

@@ -3,10 +3,15 @@
 #include <cmath>
 #include <format>
 #include "Header.h"
+#include <Windows.h>
+#include <cstdlib>
 
-int main() {																		
+int main() {		
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
 	std::string Costs{ "23456789TJQKA" };
 	std::string Suits{ "SHDC" };
+	std::string SuitsСonsol[] = { "♠", "♥", "♦", "♣" };
 	std::string YN;
 
 	while (true) {																		// Зацикливание игры
@@ -42,32 +47,88 @@ int main() {
 		CardGenerat(EveryCard, AllCard4.Cost, AllCard4.Suit);
 		CardGenerat(EveryCard, AllCard5.Cost, AllCard5.Suit);							// Генерация всех 11 игровых карт: 2 для игрока, 4 для ботов, 5 общих
 
+		std::cout << "Your hand:" << "\n";
+		std::cout << "+-------+" << "     " << "+-------+\n";
+		std::cout << "| " << Costs[Player1.PlayerCard1.Cost] << "     |" << "     " << "| " << Costs[Player1.PlayerCard2.Cost] << "     |\n";
+		std::cout << "|       |" << "     " << "|       |\n";
+		std::cout << "|   " << SuitsСonsol[Player1.PlayerCard1.Suit] << "   |" << "     " << "|   " << SuitsСonsol[Player1.PlayerCard2.Suit] << "   |\n";
+		std::cout << "|       |" << "     " << "|       |\n";
+		std::cout << "|     " << Costs[Player1.PlayerCard1.Cost] << " |" << "     " << "|     " << Costs[Player1.PlayerCard2.Cost] << " |\n";
+		std::cout << "+-------+" << "     " << "+-------+\n";
 
-		std::cout << "Your hand\nFirst card: " << Costs[Player1.PlayerCard1.Cost] << Suits[Player1.PlayerCard1.Suit] << "\n";
-		std::cout << "Second card: " << Costs[Player1.PlayerCard2.Cost] << Suits[Player1.PlayerCard2.Suit] << "\n" << "\n";			   // Вывод информации о картах на руках игрока во время префлопа
+		/*std::cout << "Your hand\nFirst card: " << Costs[Player1.PlayerCard1.Cost] << SuitsСonsol[Player1.PlayerCard1.Suit] << "\n";
+		std::cout << "Second card: " << Costs[Player1.PlayerCard2.Cost] << SuitsСonsol[Player1.PlayerCard2.Suit] << "\n" << "\n";*/			   // Вывод информации о картах на руках игрока во время префлопа
 
-		std::cout << "Bot1 hand\nFirst card: " << Costs[Bot1.PlayerCard1.Cost] << Suits[Bot1.PlayerCard1.Suit] << "\n";
-		std::cout << "Second card: " << Costs[Bot1.PlayerCard2.Cost] << Suits[Bot1.PlayerCard2.Suit] << "\n" << "\n";
+		//std::cout << "Bot1 hand\nFirst card: " << Costs[Bot1.PlayerCard1.Cost] << Suits[Bot1.PlayerCard1.Suit] << "\n";
+		//std::cout << "Second card: " << Costs[Bot1.PlayerCard2.Cost] << Suits[Bot1.PlayerCard2.Suit] << "\n" << "\n";
 
-		std::cout << "Bot2 hand\nFirst card: " << Costs[Bot2.PlayerCard1.Cost] << Suits[Bot2.PlayerCard1.Suit] << "\n";
-		std::cout << "Second card: " << Costs[Bot2.PlayerCard2.Cost] << Suits[Bot2.PlayerCard2.Suit] << "\n" << "\n";
+		//std::cout << "Bot2 hand\nFirst card: " << Costs[Bot2.PlayerCard1.Cost] << Suits[Bot2.PlayerCard1.Suit] << "\n";
+		//std::cout << "Second card: " << Costs[Bot2.PlayerCard2.Cost] << Suits[Bot2.PlayerCard2.Suit] << "\n" << "\n";
 
 		YN = Game();																	// Game - функция для выбора действий со стороны игрока
 		if (YN == "N")
 			continue;																	// Пас
-		else if (YN == "Y")																// Чек, рейс или ререйс
-			std::cout << "===============\nThree community cards: " << Costs[AllCard1.Cost] << Suits[AllCard1.Suit] << " " << Costs[AllCard2.Cost] << Suits[AllCard2.Suit] << " " << Costs[AllCard3.Cost] << Suits[AllCard3.Suit] << "\n";
-		YN = Game();
-		if (YN == "N")
-			continue;																	// Пас
-		else if (YN == "Y")																// Чек, рейс или ререйс
-			std::cout << "===============\nFour community card: " << Costs[AllCard4.Cost] << Suits[AllCard4.Suit] << "\n";	   // Вывод четвертой карты на столе
+		else if (YN == "Y") {															// Чек, рейс или ререйс
+			std::cout << "===============\nThree community cards: \n";		//<< Costs[AllCard1.Cost] << Suits[AllCard1.Suit] << " " << Costs[AllCard2.Cost] << Suits[AllCard2.Suit] << " " << Costs[AllCard3.Cost] << Suits[AllCard3.Suit] << "\n";
+			std::cout << "+-------+" << "     " << "+-------+" << "     " << "+-------+\n";
+
+			std::cout << "| " << Costs[AllCard1.Cost] << "     |" << "     " << "| " << Costs[AllCard2.Cost] << "     |" << "     " << "| " << Costs[AllCard3.Cost] << "     |\n";
+
+			std::cout << "|       |" << "     " << "|       |" << "     " << "|       |\n";
+
+			std::cout << "|   " << SuitsСonsol[AllCard1.Suit] << "   |" << "     " << "|   " << SuitsСonsol[AllCard2.Suit] << "   |" << "     " << "|   " << SuitsСonsol[AllCard3.Suit] << "   |\n";
+
+			std::cout << "|       |" << "     " << "|       |" << "     " << "|       |\n";
+
+			std::cout << "|     " << Costs[AllCard1.Cost] << " |" << "     " << "|     " << Costs[AllCard2.Cost] << " |" << "     " << "|     " << Costs[AllCard3.Cost] << " |\n";
+
+			std::cout << "+-------+" << "     " << "+-------+" << "     " << "+-------+\n";
+		}
 
 		YN = Game();
 		if (YN == "N")
 			continue;																	// Пас
-		else if (YN == "Y")																// Чек, рейс или ререйс
-			std::cout << "===============\nFive community card: " << Costs[AllCard5.Cost] << Suits[AllCard5.Suit] << "\n";	   // Вывод пятой карты на столе
+		else if (YN == "Y") {															// Чек, рейс или ререйс
+			//std::cout << "===============\nFour community card: " << Costs[AllCard4.Cost] << Suits[AllCard4.Suit] << "\n";	   // Вывод четвертой карты на столе
+
+			std::cout << "===============\nFour community cards: \n";
+
+			std::cout << "+-------+\n";
+
+			std::cout << "| " << Costs[AllCard4.Cost] << "     |\n";
+
+			std::cout << "|       |\n";
+
+			std::cout << "|   " << SuitsСonsol[AllCard4.Suit] << "   |\n";
+
+			std::cout << "|       |\n";
+
+			std::cout << "|     " << Costs[AllCard4.Cost] << " |\n";
+
+			std::cout << "+-------+\n";
+		}
+
+		YN = Game();
+		if (YN == "N")
+			continue;																	// Пас
+		else if (YN == "Y") {															// Чек, рейс или ререйс
+			//std::cout << "===============\nFive community card: " << Costs[AllCard5.Cost] << Suits[AllCard5.Suit] << "\n";	   // Вывод пятой карты на столе
+			std::cout << "===============\nFive community cards: \n";
+
+			std::cout << "+-------+\n";
+
+			std::cout << "| " << Costs[AllCard5.Cost] << "     |\n";
+
+			std::cout << "|       |\n";
+
+			std::cout << "|   " << SuitsСonsol[AllCard5.Suit] << "   |\n";
+
+			std::cout << "|       |\n";
+
+			std::cout << "|     " << Costs[AllCard5.Cost] << " |\n";
+
+			std::cout << "+-------+\n";
+		}
 
 		for (int i{ 0 }; i < 13; i += 6) {
 			if (i == 0)
