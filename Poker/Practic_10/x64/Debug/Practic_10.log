@@ -1,2 +1,17 @@
-﻿  Practic_10.cpp
-  Practic_10.vcxproj -> C:\С\Projects\Poker\x64\Debug\Practic_10.exe
+﻿  Combinations.cpp
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(126,45): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(143,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(144,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(147,24): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(140,76): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(165,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(168,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(171,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(176,22): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(191,7): warning C4101: Flag: неиспользованная локальная переменная
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(235,60): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(248,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(252,27): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(260,78): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Jurwa\Learncpp_course\Projects\Poker\Combinations.cpp(336,98): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+  Practic_10.vcxproj -> C:\Users\Jurwa\Learncpp_course\Projects\Poker\x64\Debug\Practic_10.exe

@@ -2,7 +2,6 @@
 #include <random>
 #include <string>
 #include <cmath>
-#include "Header.h"
 
 int RandomNum(int min, int max) {														// Генератор случайных чисел, использующийся генератором случайных карт
 	static std::mt19937 x(std::random_device{}());
@@ -74,14 +73,14 @@ int CalculateStraightFlush(std::string EveryCard) {
 	bool Flag{ false };
 	int Max{ -1 };
 
-	if (RepeatSuits.find('5') != RepeatSuits.npos || RepeatSuits.find('6') != RepeatSuits.npos || RepeatSuits.find('7') != RepeatSuits.npos) { 
+	if (RepeatSuits.find('5') != RepeatSuits.npos || RepeatSuits.find('6') != RepeatSuits.npos || RepeatSuits.find('7') != RepeatSuits.npos) { // Проверка на наличие 5, 6 или 7 одинаковых разыгранных мастей
 		
 		for (int i{ 0 }; i < 4;++i) {
 			if (RepeatSuits[i] > '4')
-				Suit = Suits[i];											
+				Suit = Suits[i];											// Переменная Suit принимает порядковый номер нужной масти
 		}
 
-		for (int i{ 0 }, j{ 1 }; i < EveryCard.length();i += 3, j += 3) { 
+		for (int i{ 0 }, j{ 1 }; i < EveryCard.length();i += 3, j += 3) { // i - индекс для достоинства, j - иднекс для масти. после каждой итерации переменные увеличиваются на 3, чтобы перескачить на следующее достоинство и масть
 			if (Suit == EveryCard[j]) {
 				Straight[Costs.find(EveryCard[i])]++;
 			}

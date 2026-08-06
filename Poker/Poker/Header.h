@@ -1,21 +1,8 @@
 #pragma once
 #include <string>
 
-struct Card {
-	int Cost;
-	int Suit;
-};
-
-struct Player {
-	std::string Name;
-	Card PlayerCard1;
-	Card PlayerCard2;
-	bool Flag{ true };
-	int Score{ 0 };
-};
-
 int RandomNum(int min, int max);
-std::string Game(Player& Bot1, Player& Bot2);
+std::string Game();
 void CardGenerat(std::string& EveryCard, int& x, int& y);
 
 std::string CalculateRepeatCost(std::string EveryCard);
@@ -33,12 +20,14 @@ int CalculatePair(std::string EveryCard);
 int CalculateHighCard(std::string EveryCard);
 int CalculateScore(std::string EveryCard);
 
-int CheckHandBots(std::string EveryCardBot1Al);
-void BotAlgorithmPreFlop(Player& Bot1, Player& Bot2);
-void BotAlgorithmFlop(std::string EveryCard, Player& Bot1, Player& Bot2);
-int StraightDro(std::string EveryCardBot1Al);
 
-void PrintPreFlop(Player Player1);
-void PrintFlop(Player Player1, Card AllCard1, Card AllCard2, Card AllCard3);
-void PrintTurn(Player Player1, Card AllCard1, Card AllCard2, Card AllCard3, Card AllCard4);
-void PrintRiver(Player Player1, Card AllCard1, Card AllCard2, Card AllCard3, Card AllCard4, Card AllCard5);
+struct Card {
+	int Cost;
+	int Suit;
+};
+
+struct Player {
+	std::string Name;
+	Card PlayerCard1;
+	Card PlayerCard2;
+};

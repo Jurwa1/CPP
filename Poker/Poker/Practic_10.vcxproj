@@ -140,10 +140,8 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cards.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Practic_10.cpp" />
     <ClCompile Include="Combinations.cpp" />
-    <ClCompile Include="BotsAlgorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h" />
