@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "Pactic_12\\x64\\Debug\\Pactic_12.obj",
+            "outputs": [
+                "Pactic_12\\x64\\Debug\\Pactic_12.cpp.obj.dt.module.json",
+                "Pactic_12\\x64\\Debug\\Pactic_12.cpp.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}
