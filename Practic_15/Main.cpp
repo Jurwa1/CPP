@@ -54,6 +54,11 @@ int main () {
             case 7:
             SwapStudents(Students, std::size(Students));
             break;
+            case 8:
+            std::cout << "Exiting the program...\n";
+            return 0;
+            default:
+            std::cout << "Incorrect input. Try again\n";
         }
     }
 }

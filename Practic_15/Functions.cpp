@@ -20,7 +20,7 @@ void ShowStudent(Student* arr, int size) {
         }
     }
 
-    std::cout << "Error: Incorrect name. try again";
+    std::cout << "Error: Incorrect name. try again\n";
     std::chrono::seconds(3);
     return;
 }
@@ -43,7 +43,7 @@ void ChangeStudentAge(Student* arr, int size) {
             }
 
             else {
-                std::cout << "Error: incorrect input. Try again";
+                std::cout << "Error: incorrect input. Try again\n";
                 return;
             }
         }
@@ -70,7 +70,7 @@ void ChangeStudentGrade(Student* arr, int size) {
             }
 
             else {
-                std::cout << "Error: incorrect input. Try again";
+                std::cout << "Error: incorrect input. Try again\n";
                 return;
             }
         }
@@ -101,7 +101,7 @@ void ChangeStudentStatus(Student* arr, int size) {
             }
 
             else {
-                std::cout << "Error: incorrect input. Try again";
+                std::cout << "Error: incorrect input. Try again\n";
                 return;
             }
         }
@@ -123,8 +123,10 @@ void FindBestStudent(Student* arr, int size){
 }
 
 void SwapStudents(Student* arr, int size){
-    Student* HelpPtr1{nullptr};
-    Student* HelpPtr2{arr};
+    Student* HelpPtr{arr};
+    bool FlagName1 {false};
+    bool FlagName2 {false};
+    Student Help;
 
     std::string name1;
     std::string name2;
@@ -136,20 +138,28 @@ void SwapStudents(Student* arr, int size){
 
     for (int i = 0; i < size; ++arr, ++i){
         if (name1 == arr->name){
-            HelpPtr1 = arr;
+            FlagName1 = true;
+            break;
         }
     }
 
-    if (HelpPtr1 != nullptr) {
-        for (int i = 0; i < size; ++HelpPtr2, ++i){
-            if (name2 == HelpPtr2->name){
-
-                *HelpPtr1 = *HelpPtr2;
-                *HelpPtr2 = *arr;
+    if (FlagName1) {
+        for (int i = 0; i < size; ++HelpPtr, ++i){
+            if (name2 == HelpPtr->name){
+                FlagName2 = true;
                 break;
             }
         }
     }
 
-    std::cout << "Error: student not found";
+    else if (!FlagName1){
+      std::cout << "Error: student not found\n";
+      return;
+    }
+
+    if (FlagName2){
+        Help = *arr;
+        *arr = *HelpPtr;
+        *HelpPtr = Help;
+    }
 }
